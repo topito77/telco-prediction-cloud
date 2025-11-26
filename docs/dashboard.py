@@ -27,11 +27,11 @@ def fetch_prediction_from_production(params: dict) -> dict:
 ### Streamlit Dashboard for Telco Churn Prediction
 # when using streamlit you are usually using st.whatever to call streamlit functions
 
+# UI Setup
 st.set_page_config(page_title="Telco Churn Predictor", page_icon="📊")
+st.title("📡 Telco Churn Prediction")
+st.write("Provide customer details and get a prediction about their churn risk.")
 
-
-st.title("Telco Churn Prediction")
-st.write("Enter customer details and get a churn prediction.")
 
 # create two columns, first one on the left, second on the right
 left, right = st.columns(2)
@@ -57,7 +57,7 @@ try:
     prediction = data.get("prediction")
 
     st.subheader("Result")
-    st.write(f"Model prediction: **{prediction}**")
+    st.write(f"Model prediction: **{prediction * 100:.2f}%**")
 
     st.json(data)
 
